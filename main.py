@@ -11,9 +11,9 @@ class Navigations(object):
         screens.addWidget(self.connect_screen)
         screens.setCurrentIndex(screens.currentIndex() + 1)
 
-    def chat_page(self, username):
+    def chat_page(self, user_id):
         self.close()
-        self.chat_screen = ChatScreen(username)
+        self.chat_screen = ChatScreen(user_id)
         screens.addWidget(self.chat_screen)
         screens.setCurrentIndex(screens.currentIndex() + 1)
         
@@ -31,18 +31,24 @@ class ConnectScreen(QMainWindow, Navigations):
         
 
     def login(self):
-        username = self.USER_ID.text()
-        self.chat_page(username)
+        user_id = self.USER_ID.text()
+        self.chat_page(user_id)
 
 
 class ChatScreen(QMainWindow, Navigations):
-    def __init__(self, username):
-        self.username = username.split('@')[0]
+    def __init__(self, user_id):
+        self.user_id = user_id.split('@')[0]
         super(ChatScreen, self).__init__()
         loadUi('Screens/Messenger_chat.ui', self)
         screens.setWindowTitle("Ongoing chat..")
-        self.disconnect_button.clicked.connect(self.connect_page)
+        # Write to list
+        self.send_button.clicked.connect(self.send_message)
         self.exit_button.clicked.connect(self.exit)
+    
+    def send_message(self):
+        self.message_view.addItems([self.message.text()])
+        
+        
 
 
 if __name__ == "__main__":
