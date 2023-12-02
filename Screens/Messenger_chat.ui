@@ -99,7 +99,7 @@
      <string>Enter message here</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="logout_button">
+   <widget class="QPushButton" name="disconnect_button">
     <property name="geometry">
      <rect>
       <x>700</x>

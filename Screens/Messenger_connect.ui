@@ -99,7 +99,7 @@
      <string>Enter messenger id here</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="login_button">
+   <widget class="QPushButton" name="connect_button">
     <property name="geometry">
      <rect>
       <x>310</x>

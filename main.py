@@ -5,52 +5,52 @@ from PyQt6.QtWidgets import QApplication, QMainWindow
 
 
 class Navigations(object):
-    def login_page(self):
+    def connect_page(self):
         self.close()
-        self.login_screen = LoginScreen()
-        screens.addWidget(self.login_screen)
+        self.connect_screen = ConnectScreen()
+        screens.addWidget(self.connect_screen)
         screens.setCurrentIndex(screens.currentIndex() + 1)
 
-    def welcome_page(self, username):
+    def chat_page(self, username):
         self.close()
-        self.welcome_screen = WelcomeScreen(username)
-        screens.addWidget(self.welcome_screen)
+        self.chat_screen = ChatScreen(username)
+        screens.addWidget(self.chat_screen)
         screens.setCurrentIndex(screens.currentIndex() + 1)
         
     def exit(self):
         sys.exit()
         
 
-class LoginScreen(QMainWindow, Navigations):
+class ConnectScreen(QMainWindow, Navigations):
     def __init__(self):
-        super(LoginScreen, self).__init__()
+        super(ConnectScreen, self).__init__()
         loadUi('Screens/Messenger_connect.ui', self)
         screens.setWindowTitle("Connect to chat")
-        self.login_button.clicked.connect(self.login)
+        self.connect_button.clicked.connect(self.login)
         self.exit_button.clicked.connect(self.exit)
         
 
     def login(self):
         username = self.USER_ID.text()
-        self.welcome_page(username)
+        self.chat_page(username)
 
 
-class WelcomeScreen(QMainWindow, Navigations):
+class ChatScreen(QMainWindow, Navigations):
     def __init__(self, username):
         self.username = username.split('@')[0]
-        super(WelcomeScreen, self).__init__()
+        super(ChatScreen, self).__init__()
         loadUi('Screens/Messenger_chat.ui', self)
         screens.setWindowTitle("Ongoing chat..")
-        self.logout_button.clicked.connect(self.login_page)
+        self.disconnect_button.clicked.connect(self.connect_page)
         self.exit_button.clicked.connect(self.exit)
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     screens = QtWidgets.QStackedWidget()
-    login_window = LoginScreen()
+    main_window = ConnectScreen()
     
-    screens.addWidget(login_window)
+    screens.addWidget(main_window)
     screens.setFixedHeight(350)
     screens.setFixedWidth(800)
     screens.show()
