@@ -12,4 +12,4 @@ Messenger Application written in Python using the PyQt6 Library
   * Initial build
    
 # Licence
-This project is licenced under the Mozilla Public License 2.0 - see the [LICENCE](https://github.com/LarsRosenkilde/Messenger/blob/master/LICENCE) for details
+This project is licenced under the Mozilla Public License 2.0 - see the [LICENCE](https://github.com/bytesenseidk/Messenger/blob/main/LICENCE) for details
