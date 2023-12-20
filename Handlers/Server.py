@@ -54,3 +54,4 @@ if __name__ == "__main__":
         for notified_socket in exception_sockets:
             Server.sockets_list.remove(notified_socket)
             del server.clients[notified_socket]
+
