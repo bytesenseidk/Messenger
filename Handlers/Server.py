@@ -10,12 +10,19 @@ class ServerWindow(QMainWindow):
     def __init__(self):
         super(ServerWindow, self).__init__()
         loadUi('Screens\\Server.ui', self)
-
+        ip = "127.0.0.1"
+        port = 1234
+        clients = 0
+        self.server_ip.setText(ip)
+        self.server_port.setText(str(port))
+        self.server_clients.setText(str(clients))
+    
+    
 
 
 
 class Server(object):
-    def __init__(self):
+    def __init__(self, ip, port):
         self.server = ServerHandler()
     
     def run(self):
