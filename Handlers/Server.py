@@ -34,3 +34,7 @@ class Server(object):
             for notified_socket in exception_sockets:
                 Server.sockets_list.remove(notified_socket)
                 del self.server.clients[notified_socket]
+
+
+if __name__ == "__main__":
+    Server().run()
