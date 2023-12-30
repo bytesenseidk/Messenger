@@ -17,7 +17,7 @@ class ServerWindow(QMainWindow):
         self.server_port.setText(str(port))
         self.server_clients.setText(str(clients))
     
-    
+
 
 
 
@@ -58,9 +58,12 @@ class Server(object):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    screens = QtWidgets.QStackedWidget()
+    screen = QtWidgets.QStackedWidget()
     server_window = ServerWindow()
+    screen.setWindowTitle("Server running...")
     
-    screens.addWidget(server_window)
-    screens.show()
+    screen.addWidget(server_window)
+    screen.setFixedHeight(590)
+    screen.setFixedWidth(800)
+    screen.show()
     sys.exit(app.exec())
