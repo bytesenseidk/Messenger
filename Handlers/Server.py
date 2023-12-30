@@ -1,5 +1,18 @@
+import sys
 import select
 from server_handler import ServerHandler
+from PyQt6 import QtWidgets
+from PyQt6.uic import loadUi
+from PyQt6.QtWidgets import QApplication, QMainWindow
+
+
+class ServerWindow(QMainWindow):
+    def __init__(self):
+        super(ServerWindow, self).__init__()
+        loadUi('Screens\\Server.ui', self)
+
+
+
 
 class Server(object):
     def __init__(self):
@@ -37,4 +50,10 @@ class Server(object):
 
 
 if __name__ == "__main__":
-    Server().run()
+    app = QApplication(sys.argv)
+    screens = QtWidgets.QStackedWidget()
+    server_window = ServerWindow()
+    
+    screens.addWidget(server_window)
+    screens.show()
+    sys.exit(app.exec())
