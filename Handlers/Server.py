@@ -16,9 +16,6 @@ class ServerWindow(QMainWindow):
         self.server_ip.setText(ip)
         self.server_port.setText(str(port))
         self.server_clients.setText(str(clients))
-    
-
-
 
 
 class Server(object):
@@ -54,6 +51,7 @@ class Server(object):
             for notified_socket in exception_sockets:
                 Server.sockets_list.remove(notified_socket)
                 del self.server.clients[notified_socket]
+
 
 
 if __name__ == "__main__":
